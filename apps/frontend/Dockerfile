@@ -1,4 +1,5 @@
 FROM node:20-slim AS builder
+ENV CI=true
 RUN corepack enable
 WORKDIR /app
 COPY . .
