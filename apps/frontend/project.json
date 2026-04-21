@@ -19,9 +19,12 @@
       }
     },
     "docker-build": {
-      "executor": "nx:run-commands",
+      "executor": "@nx-tools/nx-container:build",
       "options": {
-        "command": "docker build -t nx-demo-frontend:latest -f apps/frontend/Dockerfile ."
+        "context": ".",
+        "file": "apps/frontend/Dockerfile",
+        "tags": ["nx-demo-frontend:latest"],
+        "push": false
       }
     },
     "helm-package": {
