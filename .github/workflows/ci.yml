@@ -12,12 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6.0.2
         with:
           fetch-depth: 0
 
       - name: Setup Tools (mise)
-        uses: jdx/mise-action@v2
+        uses: jdx/mise-action@v4.0.1
 
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
@@ -42,7 +42,7 @@ jobs:
 
       - name: Upload Helm Charts
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7.0.1
         with:
           name: helm-charts
           path: dist/charts/*.tgz
