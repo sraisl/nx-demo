@@ -13,6 +13,10 @@ install:
 build-all:
     npx nx run-many -t build
 
+# Run all tests
+test-all:
+    npx nx run-many -t test
+
 # Build only affected projects
 build-affected:
     npx nx affected -t build

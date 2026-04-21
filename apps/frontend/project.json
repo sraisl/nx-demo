@@ -11,6 +11,13 @@
       },
       "outputs": ["{workspaceRoot}/dist/apps/frontend"]
     },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx vitest run",
+        "cwd": "apps/frontend"
+      }
+    },
     "docker-build": {
       "executor": "nx:run-commands",
       "options": {

@@ -13,6 +13,13 @@
         "^production"
       ]
     },
+    "test": {
+      "cache": true,
+      "inputs": [
+        "default",
+        "^production"
+      ]
+    },
     "docker-build": {
       "cache": true,
       "dependsOn": [

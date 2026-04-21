@@ -11,6 +11,13 @@
       },
       "outputs": ["{workspaceRoot}/apps/backend/target"]
     },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "mvn test",
+        "cwd": "apps/backend"
+      }
+    },
     "docker-build": {
       "executor": "nx:run-commands",
       "options": {
