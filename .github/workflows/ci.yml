@@ -23,7 +23,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Set Nx SHAs
-        uses: nrwl/nx-set-shas@v6
+        uses: nrwl/nx-set-shas@v5.0.1
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
