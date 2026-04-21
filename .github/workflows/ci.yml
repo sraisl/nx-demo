@@ -23,7 +23,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Set Nx SHAs
-        uses: nrwl/nx-set-shas@v6
+        uses: nrwl/nx-set-shas@v6.0.1
 
       - name: Unit Tests
         run: npx nx affected -t test
