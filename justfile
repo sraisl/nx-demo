@@ -49,6 +49,10 @@ graph:
 release-check:
     npx nx release --dry-run
 
+# Preview a release with specific increment (patch, minor, major)
+release-patch:
+    npx nx release patch --dry-run
+
 # Clean all build artifacts
 clean:
     rm -rf dist
