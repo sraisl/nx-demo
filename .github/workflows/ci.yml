@@ -38,6 +38,9 @@ jobs:
       - name: Build Affected
         run: npx nx affected -t build
 
+      - name: Helm Lint Affected
+        run: npx nx affected -t helm-lint
+
       - name: Docker Build Affected
         run: |
           # Note: This only builds images locally to verify the Dockerfile

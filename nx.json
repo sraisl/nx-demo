@@ -38,6 +38,12 @@
       "inputs": [
         "helm-chart"
       ]
+    },
+    "helm-lint": {
+      "cache": true,
+      "inputs": [
+        "helm-chart"
+      ]
     }
   },
   "namedInputs": {

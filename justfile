@@ -37,6 +37,10 @@ docker-all:
 helm-all:
     npx nx run-many -t helm-package
 
+# Lint all Helm charts
+helm-lint:
+    npx nx run-many -t helm-lint
+
 # Show dependency graph
 graph:
     npx nx graph
