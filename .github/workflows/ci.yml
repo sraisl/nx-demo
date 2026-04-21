@@ -22,7 +22,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Set Nx SHAs
-        uses: nrwl/nx-set-shas@v4
+        uses: nx-actions/nx-set-shas@v6
 
       - name: Lint and Format Check (Example)
         run: npx nx affected -t build # Running build first as it's our primary target
