@@ -78,6 +78,7 @@
       "generator": "@nx/js:release-version"
     },
     "changelog": {
+      "automaticFromRef": true,
       "projectChangelogs": {
         "file": true,
         "createRelease": "github"

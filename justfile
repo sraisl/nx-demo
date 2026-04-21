@@ -49,6 +49,10 @@ graph:
 release-check:
     npx nx release --dry-run
 
+# Preview the very first release of the workspace
+release-first:
+    npx nx release --first-release --dry-run
+
 # Preview a release with specific increment (patch, minor, major)
 release-patch:
     npx nx release patch --dry-run
