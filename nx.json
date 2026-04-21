@@ -67,5 +67,21 @@
   },
   "useInferencePlugins": false,
   "useLegacyCache": false,
-  "analytics": false
+  "analytics": false,
+  "release": {
+    "projects": [
+      "frontend",
+      "backend",
+      "shared-types"
+    ],
+    "version": {
+      "generator": "@nx/js:release-version"
+    },
+    "changelog": {
+      "projectChangelogs": {
+        "file": true,
+        "createRelease": "github"
+      }
+    }
+  }
 }
