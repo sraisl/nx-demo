@@ -45,6 +45,10 @@ helm-lint:
 graph:
     npx nx graph
 
+# Preview a release (dry-run)
+release-check:
+    npx nx release --dry-run
+
 # Clean all build artifacts
 clean:
     rm -rf dist
