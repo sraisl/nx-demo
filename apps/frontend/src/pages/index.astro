@@ -1,0 +1,19 @@
+---
+import { User } from '@nx-demo/shared-types';
+
+const user: User = { id: '1', name: 'Demo User', email: 'demo@example.com' };
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro Monorepo Demo</title>
+	</head>
+	<body>
+		<h1>Astro Monorepo Demo</h1>
+		<p>Hello {user.name} ({user.email})</p>
+	</body>
+</html>

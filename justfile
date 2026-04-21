@@ -1,0 +1,44 @@
+# Nx Monorepo Justfile
+
+# Default recipe: list all recipes
+default:
+    @just --list
+
+# Install all tools and dependencies
+install:
+    mise install
+    pnpm install
+
+# Build everything
+build-all:
+    npx nx run-many -t build
+
+# Build only affected projects
+build-affected:
+    npx nx affected -t build
+
+# Start frontend in dev mode
+dev-frontend:
+    npx nx serve frontend
+
+# Start backend in dev mode
+dev-backend:
+    npx nx serve backend
+
+# Build all Docker images
+docker-all:
+    npx nx run-many -t docker-build
+
+# Package all Helm charts
+helm-all:
+    npx nx run-many -t helm-package
+
+# Show dependency graph
+graph:
+    npx nx graph
+
+# Clean all build artifacts
+clean:
+    rm -rf dist
+    npx nx run-many -t build --clean # If executors support it, otherwise manual:
+    rm -rf apps/backend/target

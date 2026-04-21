@@ -1,0 +1,58 @@
+{
+  "affected": {
+    "defaultBase": "main"
+  },
+  "targetDefaults": {
+    "build": {
+      "cache": true,
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "production",
+        "^production"
+      ]
+    },
+    "docker-build": {
+      "cache": true,
+      "dependsOn": [
+        "build"
+      ],
+      "inputs": [
+        "production",
+        "dockerfile"
+      ]
+    },
+    "helm-package": {
+      "cache": true,
+      "dependsOn": [
+        "build"
+      ],
+      "inputs": [
+        "helm-chart"
+      ]
+    }
+  },
+  "namedInputs": {
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
+    "production": [
+      "default",
+      "!{projectRoot}/.eslintrc.json",
+      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(m)",
+      "!{projectRoot}/tsconfig.spec.json"
+    ],
+    "sharedGlobals": [],
+    "dockerfile": [
+      "{projectRoot}/Dockerfile"
+    ],
+    "helm-chart": [
+      "{projectRoot}/charts/**/*"
+    ]
+  },
+  "useInferencePlugins": false,
+  "useLegacyCache": false,
+  "analytics": false
+}
