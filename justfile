@@ -55,7 +55,13 @@ release-first:
 
 # Preview a release with specific increment (patch, minor, major)
 release-patch:
-    npx nx release patch --dry-run
+    npx nx release version patch --dry-run --skip-publish
+    npx nx release changelog patch --dry-run
+
+# Preview a release with specific version (e.g., 1.0.1)
+release-fixed:
+    npx nx release version 1.0.1 --dry-run --skip-publish
+    npx nx release changelog 1.0.1 --dry-run
 
 # Clean all build artifacts
 clean:
