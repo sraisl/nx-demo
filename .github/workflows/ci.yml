@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Tools (mise)
+        uses: jdx/mise-action@v2
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Set Nx SHAs
+        uses: nrwl/nx-set-shas@v4
+
+      - name: Lint and Format Check (Example)
+        run: npx nx affected -t build # Running build first as it's our primary target
+
+      - name: Build Affected
+        run: npx nx affected -t build
+
+      - name: Docker Build Affected
+        run: |
+          # Note: This only builds images locally to verify the Dockerfile
+          # To push to a registry, you would need 'docker login' and 'docker push'
+          npx nx affected -t docker-build
+
+      - name: Helm Package Affected
+        run: npx nx affected -t helm-package
+
+      - name: Upload Helm Charts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: helm-charts
+          path: dist/charts/*.tgz
+          if-no-files-found: ignore
