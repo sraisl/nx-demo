@@ -1,6 +1,6 @@
 [tools]
 node = "20"
-pnpm = "8"
+pnpm = "10"
 java = "temurin-21"
 maven = "3.9"
 helm = "3.14"
